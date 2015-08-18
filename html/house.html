@@ -1,0 +1,89 @@
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="house.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        var currentHouseValues = {
+            "smoke" : {{ smoke }},
+            "lights" : {{ lights }},
+            "door" : {{ door }}
+        }
+    </script>
+    <div class="page-content">
+        <div class="house">
+            <div id="smoke-cloud">
+                <div name="smoke-main" id="cloud"></div>
+                <div name="smoke-before" id="cloud-before"></div>
+                <div name="smoke-after" id="cloud-after"></div>
+            </div>
+            <div name="lights-living" class="windows living"></div>
+            <div name="lights-bedroom" class="windows bedroom"></div>
+            <div name="lights-bathroom" class="windows bathroom"></div>
+            <div name="lights-kitchen" class="windows kitchen"></div>
+            <div class="door"></div>
+            <!-- door-open / door-closed -->
+            <div name="doorView" class="door door-closed"></div>
+        </div>
+
+        <div class="control-panel">
+            <p> Control Panel </p>
+            <fieldset>
+                <legend>Lights</legend>
+                <div class="check-buttons">
+                    <span class="off">OFF</span>
+                    <input type="range" name="lights-update" min="0" max="1" value="0"/>
+                    <span class="on">ON</span>
+                </div>
+                <input type="range" name="lights" class="lightsSlider" value="0" min="0" max="10" readonly/>
+                <span class="lightsSpan slideSpan">0</span>
+            </fieldset>
+            <fieldset>
+                <legend>Smoke</legend>
+                <div class="check-buttons">
+                    <span class="off">OFF</span>
+                    <input type="range" name="smoke-update" id="check" min="0" max="1" value="0" />
+                    <span class="on">ON</span>
+                </div>
+                <input type="range" name="smoke" class="smokeSlider" value="0" min="0" max="10" readonly/>
+                <span class="smokeSpan slideSpan">0</span>
+            </fieldset>
+            <fieldset>
+                <legend>Door</legend>
+                <div class="check-buttons">
+                    <span class="off">CLOSED</span>
+                    <input type="range" name="door" id="check" min="0" max="1" value="0"/>
+                    <span class="on">OPEN</span>
+                </div>
+            </fieldset>
+        </div>
+        <table >
+        <thead>
+            <th>Name</th>
+            <th>Value</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lights</td>
+                <td class="table_lights"></td>
+            </tr>
+            <tr>
+                <td>Smoke</td>
+                <td class="table_smoke"></td>
+            </tr>
+            <tr>
+                <td>Door</td>
+                <td class="table_door"></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+<script src="js/house.js"></script>
+<script src="js/view.js"></script>
+<script src="js/ControlPanel.js"></script>
+<script src="js/HouseView.js"></script>
+<script src="js/Table.js"></script>
+<script src="js/controller.js"></script>
+</html>
