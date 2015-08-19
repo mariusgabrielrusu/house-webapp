@@ -6,7 +6,7 @@ function ControlPanelView(){};
 ControlPanelView.prototype = new View();
 ControlPanelView.prototype.constructor = ControlPanelView;
 
-ControlPanelView.prototype.render = function(){
+ControlPanelView.prototype.setActions = function(){
     var _this = this;
     $(":input").change(function(e) {
         //  Chestiile care vor fi modificate in "house"
@@ -33,7 +33,7 @@ ControlPanelView.prototype.render = function(){
                     slider.attr("readonly", "readonly");
                     slider.val(0);
                     slider.css("opacity", "0.6");
-                } 
+                }
                 else {
                     slider.removeAttr("readonly");
                     slider.css("opacity", "1");

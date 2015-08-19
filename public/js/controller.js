@@ -4,7 +4,7 @@ house.init();
 //	Creare control panel + randare
 var controlPanelView = new ControlPanelView();
 controlPanelView.setEntity(house);
-controlPanelView.render();
+controlPanelView.setActions();
 
 //	Creare casa + randare
 var houseView = new HouseView();
@@ -21,8 +21,16 @@ table.render();
 //	si pune valorile primite ca parametri in entitatea "house"
 //	apoi randeaza tot(face refresh pentru view-uri)
 $(document).on("buttonChange", function(evt, param){
+    var oldValues = house[param.property]; //saves previous values
     house[param.property] = param.value;
-    house.save();
-    houseView.render();
-    table.render();
+    house.save(function(isError) {
+        if(isError) {
+            alert("S-a petrecut o eroare. Ne pare rau.");
+            house[param.property] = oldValues.value;
+        }
+
+        houseView.render();
+        table.render();
+    });
+
 });

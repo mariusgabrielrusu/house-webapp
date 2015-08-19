@@ -33,7 +33,11 @@ app.post('/ajax', function(req, res){
     s_house.house.door = req.body.door;
     s_house.house.lights = req.body.lights;
     s_house.house.smoke = req.body.smoke;
-    s_house.house.update();
+    s_house.house.update(function(params) {
+        res.send(JSON.stringify ({
+            "error" : params.errors
+        }));
+    });
 });
 
 

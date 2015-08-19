@@ -7,7 +7,7 @@ var house = {
         this.smoke = currentHouseValues.smoke;
         this.door = currentHouseValues.door;
     },
-    "save" : function() {
+    "save" : function(callback) {
         $.ajax({
             "url" : "/ajax",
             "type" : "post",
@@ -18,10 +18,10 @@ var house = {
                 "door" : this.door
             },
             "success" : function(data) {
-                console.log(data);
+                callback(data.error.length > 0);
             },
             "error" : function() {
-                console.log("Nu se poate accesa");
+                callback(false);
             }
         });
     }

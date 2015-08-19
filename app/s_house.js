@@ -23,14 +23,14 @@ var house = {
                 if(typeof callback === "function") {
                     callback();
                 }
-            } else {
-                console.log('Error while performing query');
-            }
+                } else {
+                    console.log('Error while performing query');
+                }
             connection.end();
         });
     },
-    "update" : function() {
-        _this = this;
+    "update" : function(callback) {
+        var _this = this;
         var connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
@@ -43,7 +43,18 @@ var house = {
         var sql = "UPDATE house_values SET door= ? , lights= ? , smoke= ? where id=?;";
         var inserts = [_this.door, _this.lights, _this.smoke, 1];
         sql = mysql.format(sql, inserts);
-        connection.query(sql);
+        connection.query(sql, function(err, rows, fields) {
+            var params = {
+                "errors" : []
+            };
+            if(err) {
+                params.errors.push("S-a petrecut o eroare.");
+            }
+
+            if(typeof callback === "function") {
+                callback(params);
+            }
+        });
 
         connection.end();
     }
