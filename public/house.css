@@ -1,443 +1,466 @@
 body {
-  overflow: scroll;
-  padding: 50px;
+	overflow: scroll;
+	padding: 50px;
 }
 table {
-    border: 1px solid #000;
+	border: 1px solid #000;
 }
 p {
-  color: #FFF;
-  font-size: 20px;
-  margin-left: 30px;
+	color: #FFF;
+	font-size: 20px;
+	margin-left: 30px;
 }
+
+/*Loading screen*/
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9000;
+}
+
+.loader img {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	left: 0;
+	margin: -50px auto auto auto ;
+	vertical-align: middle;
+	z-index: 2000;
+    display: none;
+}
+
 .page-content {
-  display: inline-block;
+	display: inline-block;
 }
 
 /*CSS for House */
+
 .house {
-  width: 0px;
-  height: 0px;
-  border-left: 200px solid transparent;
-  border-right: 200px solid transparent;
-  border-bottom: 170px solid #B2B2B2;
+	width: 0px;
+	height: 0px;
+	border-left: 200px solid transparent;
+	border-right: 200px solid transparent;
+	border-bottom: 170px solid #B2B2B2;
 }
-
 .house:after {
-  position: absolute;
-  content: '';
-  width: 320px;
-  height: 250px;
-  background: #B2B2B2;
-  top: 228px;
-  left: 100px;
-  z-index: -1;
+	position: absolute;
+	content: '';
+	width: 320px;
+	height: 250px;
+	background: #B2B2B2;
+	top: 228px;
+	left: 100px;
+	z-index: -1;
 }
-
 .house:before {
-  position: absolute;
-  content: '';
-  width: 40px;
-  height: 70px;
-  background: #B2B2B2;
-  top: 110px;
-  left: 360px;
-  z-index: -1;
+	position: absolute;
+	content: '';
+	width: 40px;
+	height: 70px;
+	background: #B2B2B2;
+	top: 110px;
+	left: 360px;
+	z-index: -1;
 }
 .windows {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background: rgba(255, 255, 0, 0);
-    border: 2px solid #000;
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	background: rgba(255, 255, 0, 0);
+	border: 2px solid #000;
 }
 .living {
-    left:130px;
-    top: 250px;
+	left: 130px;
+	top: 250px;
 }
 .bedroom {
-    left:315px;
-    top: 250px;
+	left: 315px;
+	top: 250px;
 }
 .bathroom {
-    left:130px;
-    top: 350px;
+	left: 130px;
+	top: 350px;
 }
 .kitchen {
-    left:315px;
-    top: 350px;
+	left: 315px;
+	top: 350px;
 }
 .door {
-    position: absolute;
-    /*background: #B2B2B2;*/
-    border: 2px solid #000000;
-    height: 129px;
-    width: 85px;
-    top: 347px;
-    left: 216px;
-    z-index: 20;
+	position: absolute;
+	/*background: #B2B2B2;*/
+	border: 2px solid #000000;
+	height: 129px;
+	width: 85px;
+	top: 347px;
+	left: 216px;
+	z-index: 20;
 }
 .door-closed {
-    border: 2px solid black;
-    position: absolute;
-    background: #993300;
-    height: 129px;
-    width: 85px;
-    top: 347px;
-    left: 216px;
-    z-index: 30;
+	border: 2px solid black;
+	position: absolute;
+	background: #993300;
+	height: 129px;
+	width: 85px;
+	top: 347px;
+	left: 216px;
+	z-index: 30;
 }
 .door-open {
-    border: 2px solid black;
-    position: absolute;
-    height: 143px;
-    width: 85px;
-    top: 340px;
-    left: 201px;
-    z-index: 30;
-    background: #993300;
-    -webkit-transform: perspective(300) rotateY(-45deg);
+	border: 2px solid black;
+	position: absolute;
+	height: 143px;
+	width: 85px;
+	top: 340px;
+	left: 201px;
+	z-index: 30;
+	background: #993300;
+	-webkit-transform: perspective(300) rotateY(-45deg);
 }
+
 /*Smoke cloud*/
-#smoke-cloud >*{
-    background: rgba(80,80,80,0);
+
+#smoke-cloud >* {
+	background: rgba(80, 80, 80, 0);
 }
 div#cloud {
-    position: absolute;
-    left: 370px;
-    top: 40px;
-    width: 100px;
-    height: 40px;
-
-    margin: 20px auto 20px;
-
-    -webkit-border-radius: 200px;
-    -moz-border-radius: 200px;
-    border-radius: 200px;
+	position: absolute;
+	left: 370px;
+	top: 40px;
+	width: 100px;
+	height: 40px;
+	margin: 20px auto 20px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	border-radius: 200px;
 }
-
 div#cloud-after, div#cloud-before {
-    content: '';
-    position: absolute;
-    z-indeX: -1;
+	content: '';
+	position: absolute;
+	z-indeX: -1;
 }
-
 div#cloud-after {
-    width: 40px;
-    height: 40px;
-    position:relative;
-
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-
-    top: -63px;
-    left: 125px;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	top: -63px;
+	left: 125px;
 }
-
 div#cloud-before {
-    width: 50px;
-    height: 50px;
-    position: relative;
-
-    -webkit-border-radius: 200px;
-    -moz-border-radius: 200px;
-    border-radius: 200px;
-
-    top: -20px;
-    left: 147px;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	border-radius: 200px;
+	top: -20px;
+	left: 147px;
 }
 .control-panel {
-    float: right;
-    width: 400px;
-    height: 450px;
-    background: #242424;
-    left: 500px;
-    top: -150px;
-    position: relative;
-    border-radius: 20px;
+	float: right;
+	width: 400px;
+	height: 450px;
+	background: #242424;
+	left: 500px;
+	top: -150px;
+	position: relative;
+	border-radius: 20px;
 }
 
 /*Custom slider */
+
 input[type=range] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 98%; /* Specific width is required for Firefox. */
-  width: 200px;
+	-webkit-appearance: none;
+	/* Hides the slider so that custom slider can be made */
+	width: 98%;
+	/* Specific width is required for Firefox. */
+	width: 200px;
 }
-
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
+	-webkit-appearance: none;
 }
-
 input[type=range]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+	outline: none;
+	/* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+input[type=range]::-ms-track {
+	width: 100%;
+	cursor: pointer;
+	background: transparent;
+	/* Hides the slider so custom styles can be added */
+	border-color: transparent;
+	color: transparent;
 }
 
-input[type=range]::-ms-track {
-  width: 100%;
-  cursor: pointer;
-  background: transparent; /* Hides the slider so custom styles can be added */
-  border-color: transparent;
-  color: transparent;
-}
 /* Special styling for WebKit/Blink */
+
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 25px;
-  width: 15px;
-  border-radius: 3px;
-  background: #fff;
-  cursor: pointer;
-  margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	height: 25px;
+	width: 15px;
+	border-radius: 3px;
+	background: #fff;
+	cursor: pointer;
+	margin-top: -10px;
+	/* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	/* Add cool effects to your sliders! */
 }
 
 /* All the same stuff for Firefox */
+
 input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 25px;
-  width: 15px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	border: 1px solid #000000;
+	height: 25px;
+	width: 15px;
+	border-radius: 3px;
+	background: #ffffff;
+	cursor: pointer;
 }
 
 /* All the same stuff for IE */
+
 input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 25px;
-  width: 15px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	border: 1px solid #000000;
+	height: 25px;
+	width: 15px;
+	border-radius: 3px;
+	background: #ffffff;
+	cursor: pointer;
 }
 input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
+	width: 100%;
+	height: 8.4px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	background: #3071a9;
+	border-radius: 1.3px;
+	border: 0.2px solid #010101;
 }
-
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #367ebd;
+	background: #367ebd;
 }
-
 input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
+	width: 100%;
+	height: 8.4px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	background: #3071a9;
+	border-radius: 1.3px;
+	border: 0.2px solid #010101;
 }
-
 input[type=range]::-ms-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
+	width: 100%;
+	height: 8.4px;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	border-width: 16px 0;
+	color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #2a6495;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	background: #2a6495;
+	border: 0.2px solid #010101;
+	border-radius: 2.6px;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #3071a9;
+	background: #3071a9;
 }
 input[type=range]::-ms-fill-upper {
-  background: #3071a9;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	background: #3071a9;
+	border: 0.2px solid #010101;
+	border-radius: 2.6px;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
+	background: #367ebd;
 }
+
 /*End of custom slider*/
 
 
 /*Those damn switches*/
 
 legend {
-    color: white;
+	color: white;
 }
-
 fieldset {
-    height: 100px;
-    margin: 3px 10px;
-    border-radius: 10px;
+	height: 100px;
+	margin: 3px 10px;
+	border-radius: 10px;
 }
 
 /*Custom slider */
-    input[type=range] {
-      -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-      width: 98%; /* Specific width is required for Firefox. */
-      margin-top: 40px;
-      max-width: 300px;
-      margin-top: 20px;
-    }
 
-    input[type=range]:focus {
-      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-    }
+input[type=range] {
+	-webkit-appearance: none;
+	/* Hides the slider so that custom slider can be made */
+	width: 98%;
+	/* Specific width is required for Firefox. */
+	margin-top: 40px;
+	max-width: 300px;
+	margin-top: 20px;
+}
+input[type=range]:focus {
+	outline: none;
+	/* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+input[type=range]::-ms-track {
+	width: 100%;
+	cursor: pointer;
+	background: transparent;
+	/* Hides the slider so custom styles can be added */
+	border-color: transparent;
+	color: transparent;
+}
 
-    input[type=range]::-ms-track {
-      width: 100%;
-      cursor: pointer;
-      background: transparent; /* Hides the slider so custom styles can be added */
-      border-color: transparent;
-      color: transparent;
-    }
-    /* Special styling for WebKit/Blink */
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      border: 1px solid #000000;
-      height: 25px;
-      width: 15px;
-      border-radius: 3px;
-      background: #fff;
-      cursor: pointer;
-      margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-    }
+/* Special styling for WebKit/Blink */
 
-    /* All the same stuff for Firefox */
-    input[type=range]::-moz-range-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      border: 1px solid #000000;
-      height: 25px;
-      width: 15px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-    }
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	height: 25px;
+	width: 15px;
+	border-radius: 3px;
+	background: #fff;
+	cursor: pointer;
+	margin-top: -10px;
+	/* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	/* Add cool effects to your sliders! */
+}
 
-    /* All the same stuff for IE */
-    input[type=range]::-ms-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      border: 1px solid #000000;
-      height: 25px;
-      width: 15px;
-      border-radius: 3px;
-      background: #ffffff;
-      cursor: pointer;
-    }
-    input[type=range]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: #3071a9;
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
+/* All the same stuff for Firefox */
 
-    input[type=range]:focus::-webkit-slider-runnable-track {
-      background: #367ebd;
-    }
+input[type=range]::-moz-range-thumb {
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	border: 1px solid #000000;
+	height: 25px;
+	width: 15px;
+	border-radius: 3px;
+	background: #ffffff;
+	cursor: pointer;
+}
 
-    input[type=range]::-moz-range-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background: #3071a9;
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
+/* All the same stuff for IE */
 
-    input[type=range]::-ms-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      background: transparent;
-      border-color: transparent;
-      border-width: 16px 0;
-      color: transparent;
-    }
-    input[type=range]::-ms-fill-lower {
-      background: #2a6495;
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    input[type=range]:focus::-ms-fill-lower {
-      background: #3071a9;
-    }
-    input[type=range]::-ms-fill-upper {
-      background: #3071a9;
-      border: 0.2px solid #010101;
-      border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    input[type=range]:focus::-ms-fill-upper {
-      background: #367ebd;
-    }
+input[type=range]::-ms-thumb {
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	border: 1px solid #000000;
+	height: 25px;
+	width: 15px;
+	border-radius: 3px;
+	background: #ffffff;
+	cursor: pointer;
+}
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 8.4px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	background: #3071a9;
+	border-radius: 1.3px;
+	border: 0.2px solid #010101;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 8.4px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	background: #3071a9;
+	border-radius: 1.3px;
+	border: 0.2px solid #010101;
+}
+input[type=range]::-ms-track {
+	width: 100%;
+	height: 8.4px;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	border-width: 16px 0;
+	color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+	background: #2a6495;
+	border: 0.2px solid #010101;
+	border-radius: 2.6px;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-lower {
+	background: #3071a9;
+}
+input[type=range]::-ms-fill-upper {
+	background: #3071a9;
+	border: 0.2px solid #010101;
+	border-radius: 2.6px;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-upper {
+	background: #367ebd;
+}
+
 /*End of custom slider*/
 
+
 /*For the range buttons:*/
-.check-buttons > input[type=range]{
-    max-width: 40px;
-    border-radius: 100px;
-    display: inline;
-}
 
+.check-buttons > input[type=range] {
+	max-width: 40px;
+	border-radius: 100px;
+	display: inline;
+}
 .check-buttons > input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: 1px solid #000000;
-    top: 5px;
-    height: 25px;
-    width: 25px;
-    border-radius: 30px;
-    background: #fff;
-    cursor: pointer;
-    margin-top: -10px;  /*You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	top: 5px;
+	height: 25px;
+	width: 25px;
+	border-radius: 30px;
+	background: #fff;
+	cursor: pointer;
+	margin-top: -10px;
+	/*You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	/* Add cool effects to your sliders! */
 }
-
 .check-buttons > input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    position: relative;
-    height: 10px;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #CC0000;
-    border-radius: 3px;
-    border: 0.2px solid #010101;
+	width: 100%;
+	position: relative;
+	height: 10px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	background: #CC0000;
+	border-radius: 3px;
+	border: 0.2px solid #010101;
 }
-
 .slideSpan {
-    position: relative;
-    padding-left: 20px;
-    color: white;
+	position: relative;
+	padding-left: 20px;
+	color: white;
 }
-
 .on {
-    padding-right: 5px;
-    color: #00A300;
+	padding-right: 5px;
+	color: #00A300;
 }
 .off {
-    padding-left: 5px;
-    color: #CC0000;
+	padding-left: 5px;
+	color: #CC0000;
 }
-
 .lightsSlider, .smokeSlider {
-    opacity: 0.6;
+	opacity: 0.6;
 }
-
 table {
-  position: relative;
-  left: 430;
+	position: relative;
+	left: 430;
 }

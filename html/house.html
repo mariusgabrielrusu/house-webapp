@@ -11,20 +11,26 @@
             "door" : {{ door }}
         }
     </script>
+
+    <!-- Loading screen. Hidden initially -->
+    <div class="loader">
+        <img src="img/ajax-loader.gif" alt="Loading screen" />
+    </div>
+
     <div class="page-content">
         <div class="house">
             <div id="smoke-cloud">
-                <div name="smoke-main" id="cloud"></div>
-                <div name="smoke-before" id="cloud-before"></div>
-                <div name="smoke-after" id="cloud-after"></div>
+                <div name="smoke-main" id="cloud" class="smoke"></div>
+                <div name="smoke-before" id="cloud-before" class="smoke"></div>
+                <div name="smoke-after" id="cloud-after" class="smoke"></div>
             </div>
-            <div name="lights-living" class="windows living"></div>
-            <div name="lights-bedroom" class="windows bedroom"></div>
-            <div name="lights-bathroom" class="windows bathroom"></div>
-            <div name="lights-kitchen" class="windows kitchen"></div>
+            <div name="lights-living" class="windows lights living"></div>
+            <div name="lights-bedroom" class="windows lights bedroom"></div>
+            <div name="lights-bathroom" class="windows lights bathroom"></div>
+            <div name="lights-kitchen" class="windows lights kitchen"></div>
             <div class="door"></div>
             <!-- door-open / door-closed -->
-            <div name="doorView" class="door door-closed"></div>
+            <div name="doorView" class="doorView door-closed"></div>
         </div>
 
         <div class="control-panel">
@@ -33,7 +39,7 @@
                 <legend>Lights</legend>
                 <div class="check-buttons">
                     <span class="off">OFF</span>
-                    <input type="range" name="lights-update" min="0" max="1" value="0"/>
+                    <input type="range" name="lights-update" class="lightsSwitch" min="0" max="1" value="0"/>
                     <span class="on">ON</span>
                 </div>
                 <input type="range" name="lights" class="lightsSlider" value="0" min="0" max="10" readonly/>
@@ -43,7 +49,7 @@
                 <legend>Smoke</legend>
                 <div class="check-buttons">
                     <span class="off">OFF</span>
-                    <input type="range" name="smoke-update" id="check" min="0" max="1" value="0" />
+                    <input type="range" name="smoke-update" class="smokeSwitch" min="0" max="1" value="0" />
                     <span class="on">ON</span>
                 </div>
                 <input type="range" name="smoke" class="smokeSlider" value="0" min="0" max="10" readonly/>
@@ -53,7 +59,7 @@
                 <legend>Door</legend>
                 <div class="check-buttons">
                     <span class="off">CLOSED</span>
-                    <input type="range" name="door" id="check" min="0" max="1" value="0"/>
+                    <input type="range" name="door" class="doorSwitch" min="0" max="1" value="0"/>
                     <span class="on">OPEN</span>
                 </div>
             </fieldset>
@@ -82,6 +88,7 @@
 </body>
 <script src="js/house.js"></script>
 <script src="js/view.js"></script>
+<script src="js/LoaderView.js"></script>
 <script src="js/ControlPanel.js"></script>
 <script src="js/HouseView.js"></script>
 <script src="js/Table.js"></script>

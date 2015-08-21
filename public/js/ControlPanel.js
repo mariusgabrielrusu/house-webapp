@@ -2,11 +2,11 @@
 //  Trebuie mentionat constructorul (by default, ar fi fost View)
 
 //  Astea 3 linii de cod sunt cele care construiesc clasa
-function ControlPanelView(){};
+function ControlPanelView() {};
 ControlPanelView.prototype = new View();
 ControlPanelView.prototype.constructor = ControlPanelView;
 
-ControlPanelView.prototype.setActions = function(){
+ControlPanelView.prototype.setActions = function() {
     var _this = this;
     $(":input").change(function(e) {
         //  Chestiile care vor fi modificate in "house"
@@ -20,28 +20,52 @@ ControlPanelView.prototype.setActions = function(){
         }
 
         $(document).trigger("buttonChange", {
-            "property" : inputName,
-            "value" : value
+            "property": inputName,
+            "value": value
         });
-
-        //  Update continut grafic ControlPanelView
-        for (var i in _this.entity) {
-            if (typeof i !== "function") {
-                //  Pentru slidere, cand sa poata fi accesate
-                var slider = $("." + i + "Slider");
-                if ($("[name=" + i + "-update]").val() === "0") {
-                    slider.attr("readonly", "readonly");
-                    slider.val(0);
-                    slider.css("opacity", "0.6");
-                }
-                else {
-                    slider.removeAttr("readonly");
-                    slider.css("opacity", "1");
-                }
-
-                //  Span-urile pentru valori
-                $("." + i + "Span").text(slider.val());
-            }
-        }
     });
-}
+};
+
+ControlPanelView.prototype.render = function() {
+    var method = null;
+
+    function capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    for (var i in this.entity) {
+        method = "set" + capitalize(i);
+        if (typeof this[method] === "function") {
+            this[method]();
+        }
+    }
+
+};
+
+ControlPanelView.prototype.setLS = function(param) {
+    Slider = parseInt(this.entity[param], 10);
+    if (Slider > 0) {
+        $("." + param + "Slider").removeAttr("readonly").css("opacity", "1");
+        $("." + param + "Switch").val(1);
+    } else {
+        $("." + param + "Switch").val(0);
+        $("." + param + "Slider").attr("readonly", true).css("opacity", "0.6");
+    }
+    $("." + param + "Slider").val(Slider);
+    $("." + param + "Span").text(Slider);
+};
+
+ControlPanelView.prototype.setLights = function() {
+    this.setLS("lights");
+};
+
+ControlPanelView.prototype.setSmoke = function() {
+    this.setLS("smoke");
+};
+
+ControlPanelView.prototype.setDoor = function() {
+    if (parseInt(this.entity.door, 10) === 1) {
+        $(".doorSwitch").val(1);
+    } else {
+        $(".doorSwitch").val(0);
+    }
+};
