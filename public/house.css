@@ -11,6 +11,36 @@ p {
 	margin-left: 30px;
 }
 
+/*.form-login input:last-child{
+	margin-left: 21px;
+}*/
+
+#loginButton, #signupButton {
+	float: right;
+}
+#login-form {
+	font-size: 15px;
+	display: none;
+}
+
+#signup-form {
+	font-size: 15px;
+	display: none;
+}
+
+#login-form, #signup-form fieldset {
+	height: auto;
+	width: auto;
+}
+
+.errorMessage {
+	border: 2px solid #ff0000;
+}
+
+.successMessage {
+	border: 2px solid #80d100;
+}
+
 /*Loading screen*/
 .loader {
 	position: absolute;

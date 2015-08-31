@@ -1,4 +1,5 @@
-var house = {
+var House = function(){};
+House.prototype = {
     "lights" : null,
     "smoke" : null,
     "door" : null,
@@ -25,4 +26,4 @@ var house = {
             }
         });
     }
-}
+};

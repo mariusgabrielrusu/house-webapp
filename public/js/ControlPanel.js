@@ -8,7 +8,7 @@ ControlPanelView.prototype.constructor = ControlPanelView;
 
 ControlPanelView.prototype.setActions = function() {
     var _this = this;
-    $(":input").change(function(e) {
+    $(":input", ".control-panel").change(function(e) {
         //  Chestiile care vor fi modificate in "house"
         //  Am pus numele cu "update" pentru switch-uri
         var inputName = e.target.name;

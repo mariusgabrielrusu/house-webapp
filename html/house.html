@@ -1,7 +1,11 @@
 <html>
 <head>
+    <meta name="Jim" content="casa" charset="utf-8">
     <link type="text/css" rel="stylesheet" href="house.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
 </head>
 <body>
     <script>
@@ -16,6 +20,33 @@
     <div class="loader">
         <img src="img/ajax-loader.gif" alt="Loading screen" />
     </div>
+
+
+
+    <div id="login-form" title="Loghează-te">
+        <form class="form-login" method="post">
+            <fieldset title="">
+                <label for="name">Utilizator:</label>
+                <input id="userID" type="text" title="1" name="name" placeholder="ex. swordfish">
+                <label for="password">Parolă:</label>
+                <input id="password" type="password" title="1" name="password" placeholder="ex. hmsintern">
+            </fieldset>
+        </form>
+    </div>
+    <div id="signup-form" title="Inscrie-te">
+        <form class="form-signup" method="post">
+            <fieldset>
+                <label for="name">Utilizator</label>
+                <input id="s_userID" type="text" title="" name="name" placeholder="ex. swordfish" data-validation="mandatory,alphaNum" required>
+                <label for="email">E-Mail</label>
+                <input id="s_email" type="text" title="" name="name" placeholder="ex. swordfish@swordfish.com" data-validation="mandatory,email" required>
+                <label for="password">Parolă</label>
+                <input id="s_password" type="password" title="" name="password" placeholder="ex. hmsintern" data-validation="mandatory,password" required>
+            </fieldset>
+        </form>
+    </div>
+    <button id="loginButton" type="button" name="login">Loghează-te</button>
+    <button id="signupButton" type="button" name="signup">Înscrie-te</button>
 
     <div class="page-content">
         <div class="house">
@@ -85,12 +116,38 @@
         </tbody>
     </table>
     </div>
+    <!-- <input type="text" id="selector" name="x" value="" title="">
+    <script type="text/javascript">
+        $("#selector").tooltip({
+            content: "Awesome content",
+            position: {
+                my: "left+15 center",
+                at: "right center"
+            }
+        })
+    </script> -->
 </body>
+<script src="http://backbonejs.org/backbone.js"></script>
+<script src="routes/h_routes.js"></script>
+<script src="js/login.js"></script>
 <script src="js/house.js"></script>
 <script src="js/view.js"></script>
+<script src="js/signup.js"></script>
+<script src="js/Validation.js"></script>
+<script src="js/FormView.js"></script>
 <script src="js/LoaderView.js"></script>
 <script src="js/ControlPanel.js"></script>
 <script src="js/HouseView.js"></script>
 <script src="js/Table.js"></script>
-<script src="js/controller.js"></script>
+<script src="js/LoginView.js"></script>
+<script src="js/SignupView.js"></script>
+<script src="js/controller/Login.js"></script>
+<script src="js/controller/Index.js"></script>
+<script src="js/controller/Signup.js"></script>
+<script src="js/enterKeyPress.js"></script>
+<script>
+Backbone.history.start({
+	"pushState" : true
+});
+</script>
 </html>
