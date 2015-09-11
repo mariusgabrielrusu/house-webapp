@@ -2,7 +2,6 @@ var View = Backbone.View.extend({
     "entity" : null,
     "setEntity" : function(obj){
         this.entity = obj;
-        this.entity.init();
     },
     "getEntity" : function(){
         return this.entity;

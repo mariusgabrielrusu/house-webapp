@@ -1,10 +1,8 @@
-var SignupEntity = function() {};
-
-SignupEntity.prototype = {
+var SignupEntity = Backbone.Model.extend({
 	"s_userID" : null,
 	"s_email" : null,
 	"s_password" : null,
-	"init" : function() {
+	"initialize" : function() {
 		this.s_userID = $("#s_userID").val();
 		this.s_email = $("#s_email").val();
 		this.s_password = $("#s_password").val();
@@ -28,4 +26,4 @@ SignupEntity.prototype = {
 			}
 		});
 	}
-};
+});

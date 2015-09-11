@@ -1,14 +1,13 @@
-var House = function(){};
-House.prototype = {
+var House = Backbone.Model.extend({
     "lights" : null,
     "smoke" : null,
     "door" : null,
-    "init" : function() {
+    "initialize" : function () {
         this.lights = currentHouseValues.lights;
         this.smoke = currentHouseValues.smoke;
         this.door = currentHouseValues.door;
     },
-    "save" : function(callback) {
+    "save" : function (callback) {
         $.ajax({
             "url" : "/ajax",
             "type" : "post",
@@ -18,12 +17,13 @@ House.prototype = {
                 "smoke" : this.smoke,
                 "door" : this.door
             },
-            "success" : function(data) {
+            "success" : function (data) {
                 callback(data.error.length > 0);
             },
-            "error" : function() {
+            "error" : function () {
                 callback(false);
             }
         });
     }
-};
+});
+

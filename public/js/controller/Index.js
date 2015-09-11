@@ -29,7 +29,6 @@ Controller_Index.prototype = {
 		this.table = new Table();
 		this.table.setEntity(this.house);
 		this.table.render();
-		this.house.init();
 	},
 	"setActions" : function(){
 		var _this = this;
