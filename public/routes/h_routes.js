@@ -1,11 +1,9 @@
 var RouterHouse = Backbone.Router.extend({
-	"routes": {
+  "routes": {
     "" : "index",
-		"index" : "index",
-		"login" : "login",
-		"signup" : "signup"
-	}
-
+    "login" : "login",
+    "signup" : "signup"
+  }
 });
 
 var siteRouter = new RouterHouse();

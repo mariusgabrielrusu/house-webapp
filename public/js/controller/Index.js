@@ -51,14 +51,14 @@ Controller_Index.prototype = {
 		        _this.table.render();
 		        _this.loaderView.destroy();
 		    });
-
 		});
+    $(document).on("loginClick", function(event) {
+      siteRouter.navigate("login", {trigger: true});
+    });
 	}
 };
 
 
 siteRouter.on("route:index", function() {
-  this.navigate("index");
   var ctrl = new Controller_Index();
-
 });

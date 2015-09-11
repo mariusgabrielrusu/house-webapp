@@ -67,7 +67,7 @@ Controller_Signup.prototype = {
 	}
 };
 
-var loginCtrl = new Controller_Signup();
+var signupCtrl = new Controller_Signup();
 // siteRouter.on("route:login", function() {
 // 	var loginCtrl = new Controller_Login();
 // });
