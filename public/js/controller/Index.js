@@ -59,5 +59,6 @@ Controller_Index.prototype = {
 
 
 siteRouter.on("route:index", function() {
+	this.navigate("bubu");
 	var ctrl = new Controller_Index();
 });
