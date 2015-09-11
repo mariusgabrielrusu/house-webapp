@@ -9,7 +9,6 @@ Controller_Signup.prototype = {
 	"init" : function() {
 		var _this = this;
 		this.signupView = new SignupView();
-		this.signupView.init();
 		this.signupEntity = new SignupEntity();
 		this.validation = new Validation();
 
@@ -18,7 +17,6 @@ Controller_Signup.prototype = {
 		});
 
 		$(document).on("signupSubmit", function(event) {
-			_this.signupEntity.initialize();
 			if(_this.signupEntity.s_userID !== "" &&
 			_this.signupEntity.s_email !== "" &&
 			_this.signupEntity.s_password !== "") {

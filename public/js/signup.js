@@ -27,4 +27,3 @@ var SignupEntity = Backbone.Model.extend({
 		});
 	}
 });
-

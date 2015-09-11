@@ -1,15 +1,11 @@
-var SignupView = function() {};
-
-SignupView.prototype = new FormView();
-SignupView.prototype.constructor = SignupView;
-
-SignupView.prototype = {
-	"init" : function() {
+"use strict";
+var SignupView = FormView.extend({
+	initialize: function () {
 		$("#signupButton").on("click", function() {
 			$(document).trigger("signupClick");
 		})
 	},
-	"makeDialog" : function() {
+	makeDialog : function() {
 		$("#signup-form").dialog({
 			modal: true,
 			draggable: false,
@@ -24,4 +20,4 @@ SignupView.prototype = {
 			}
 		});
 	}
-};
+});
