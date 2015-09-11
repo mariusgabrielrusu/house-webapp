@@ -15,7 +15,7 @@ Controller_Login.prototype = {
 		});
 
 		$(document).on("loginSubmit", function(event) {
-			_this.loginEntity.init();
+			_this.loginEntity.initialize();
 			_this.loginEntity.validate(function(isValid){
 				if(isValid.length !== 0) {
 					if(!isValid) {

@@ -1,13 +1,11 @@
-var LoginEntity = function() {};
-
-LoginEntity.prototype = {
+var LoginEntity = Backbone.Model.extend({
 	"userID" : null,
 	"password" : null,
-	"init" : function() {
+	"initialize" : function () {
 		this.userID = $("#userID").val();
 		this.password = $("#password").val();
 	},
-	"validate" : function(callback) {
+	"validate" : function (callback) {
 		var _this = this;
 		$.ajax({
 			"url" : "/login",
@@ -25,4 +23,5 @@ LoginEntity.prototype = {
 			}
 		});
 	}
-};
+
+});

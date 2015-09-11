@@ -18,14 +18,13 @@ Controller_Signup.prototype = {
 		});
 
 		$(document).on("signupSubmit", function(event) {
-			_this.signupEntity.init();
+			_this.signupEntity.initialize();
 			if(_this.signupEntity.s_userID !== "" &&
 			_this.signupEntity.s_email !== "" &&
 			_this.signupEntity.s_password !== "") {
 
 				_this.signupEntity.validate(function(isValid) {
 					if(isValid.length !== 0) {
-						alert(isValid);
 						$("#signup-form").dialog("open");
 					} else {
 						$("#signup-form").dialog("close");
