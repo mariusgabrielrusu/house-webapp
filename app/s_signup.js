@@ -19,7 +19,7 @@ SignupEntity.prototype = {
 
 		connection.connect();
 
-		var sql = 'INSERT INTO user (uid, password, email) values (?,?,?);';
+		var sql = 'INSERT INTO users (uid, password, email) values (?,?,?);';
 		var inserts = [_this.s_uid, _this.s_password, _this.s_email];
 		sql = mysql.format(sql, inserts);
 		connection.query(sql, function(err, rows, fields) {

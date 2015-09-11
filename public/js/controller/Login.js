@@ -8,7 +8,6 @@ Controller_Login.prototype = {
 	"init" : function() {
 		var _this = this;
 		this.loginView = new LoginView();
-		this.loginView.init();
 		this.loginEntity = new LoginEntity();
 		$(document).on("loginClick", function(event) {
 			_this.loginView.makeDialog();

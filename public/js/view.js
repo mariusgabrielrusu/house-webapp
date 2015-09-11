@@ -1,7 +1,4 @@
-//  View are rol de clasa abstracta
-
-function View(){};
-View.prototype = {
+var View = Backbone.View.extend({
     "entity" : null,
     "setEntity" : function(obj){
         this.entity = obj;
@@ -14,5 +11,5 @@ View.prototype = {
     //  atunci cand extinzi clasa 
     "render" : function(){
         throw "This should be implemented in child clases";
-    }
-}
+    }   
+});

@@ -9,7 +9,6 @@ Controller_Signup.prototype = {
 	"init" : function() {
 		var _this = this;
 		this.signupView = new SignupView();
-		this.signupView.init();
 		this.signupEntity = new SignupEntity();
 		this.validation = new Validation();
 
