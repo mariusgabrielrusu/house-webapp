@@ -1,10 +1,5 @@
 "use strict";
 var SignupView = FormView.extend({
-	initialize: function () {
-		$("#signupButton").on("click", function() {
-			$(document).trigger("signupClick");
-		})
-	},
 	makeDialog : function() {
 		$("#signup-form").dialog({
 			modal: true,
@@ -15,6 +10,7 @@ var SignupView = FormView.extend({
 					$(document).trigger("signupSubmit");
 				},
 				"Anulează" : function() {
+					$(document).trigger("close");
 					$("#signup-form").dialog("close");
 				}
 			}

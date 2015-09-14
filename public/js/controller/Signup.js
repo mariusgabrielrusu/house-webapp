@@ -16,7 +16,7 @@ Controller_Signup.prototype = {
 		});
 
 		$(document).on("signupSubmit", function(event) {
-		_this.signupEntity = new SignupEntity();
+			_this.signupEntity = new SignupEntity();
 			if(_this.signupEntity.s_userID !== "" &&
 			_this.signupEntity.s_email !== "" &&
 			_this.signupEntity.s_password !== "") {
