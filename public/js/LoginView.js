@@ -14,6 +14,7 @@ var LoginView = FormView.extend({
 					$(document).trigger("loginSubmit");
 				},
 				"Anulează" : function() {
+					siteRouter.navigate("index");
 					$("#login-form").dialog("close");
 				}
 			}

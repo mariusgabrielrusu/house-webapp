@@ -1,7 +1,7 @@
 var RouterHouse = Backbone.Router.extend({
 	"routes": {
 		"" : "index",
-		"bubu" : "index",
+		"index" : "index",
 		"login" : "login",
 		"signup" : "signup"
 	}

@@ -9,9 +9,6 @@ Controller_Login.prototype = {
 		var _this = this;
 		this.loginView = new LoginView();
 		this.loginEntity = new LoginEntity();
-		$(document).on("loginClick", function(event) {
-			_this.loginView.makeDialog();
-		});
 
 		$(document).on("loginSubmit", function(event) {
 			_this.loginEntity.validate(function(isValid){
@@ -24,6 +21,7 @@ Controller_Login.prototype = {
 						$("#login-form").dialog("open");
 					}
 				} else {
+					siteRouter.navigate("index");
 					$("#login-form").dialog("close");
 				}
 			});
@@ -32,7 +30,11 @@ Controller_Login.prototype = {
 	}
 };
 
-var loginCtrl = new Controller_Login();
-// siteRouter.on("route:login", function() {
-// 	var loginCtrl = new Controller_Login();
-// });
+$(document).on('click', '#loginButton', function() {
+	siteRouter.navigate("login", {trigger: true});
+});
+
+siteRouter.on("route:login", function() {
+	var loginCtrl = new Controller_Login();
+	loginCtrl.loginView.makeDialog();
+});

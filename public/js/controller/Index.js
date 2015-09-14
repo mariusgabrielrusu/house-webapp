@@ -56,8 +56,8 @@ Controller_Index.prototype = {
 	}
 };
 
-
+siteRouter.navigate("index");
 siteRouter.on("route:index", function() {
-	this.navigate("bubu");
+	// this.navigate("index");
 	var ctrl = new Controller_Index();
 });
