@@ -1,10 +1,10 @@
 var LoginView = FormView.extend({
-	initialize: function() {
-		$("#loginButton").on("click", function() {
-			$(document).trigger("loginClick");
-		})
-	},
+	"dialogVisible" : false,
 	makeDialog : function() {
+		var _this = this;
+		if(this.dialogVisible){
+			return;
+		}
 		$("#login-form").dialog({
 			modal: true,
 			draggable: false,
@@ -14,7 +14,7 @@ var LoginView = FormView.extend({
 					$(document).trigger("loginSubmit");
 				},
 				"Anulează" : function() {
-					siteRouter.navigate("index");
+					$(document).trigger("close");
 					$("#login-form").dialog("close");
 				}
 			}

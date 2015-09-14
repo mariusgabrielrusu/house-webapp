@@ -1,6 +1,6 @@
 var Controller_Index = function(){
-	this.init();
-	this.setActions();
+  this.init();
+  this.setActions();
 };
 
 Controller_Index.prototype = {
@@ -9,6 +9,7 @@ Controller_Index.prototype = {
 	"houseView": null,
 	"table" : null,
 	"house" : null,
+	"buttons" : null,
 	"init" : function(){
 		this.house = new House();
 
@@ -29,6 +30,8 @@ Controller_Index.prototype = {
 		this.table = new Table();
 		this.table.setEntity(this.house);
 		this.table.render();
+
+		this.buttons = new ButtonsView();
 	},
 	"setActions" : function(){
 		var _this = this;
@@ -51,13 +54,22 @@ Controller_Index.prototype = {
 		        _this.table.render();
 		        _this.loaderView.destroy();
 		    });
+		});
+	    $(document).on("loginClick", function(event) {
+	      siteRouter.navigate("login", {trigger: true});
+	    });
 
+	    $(document).on("signupClick", function(e) {
+	      siteRouter.navigate("signup", {trigger: true});
+	    });
+	    
+	    $(document).on("close", function() {
+			siteRouter.navigate("index", {trigger: true});		
 		});
 	}
 };
 
-siteRouter.navigate("index");
+
 siteRouter.on("route:index", function() {
-	// this.navigate("index");
-	var ctrl = new Controller_Index();
+  var ctrl = new Controller_Index();
 });

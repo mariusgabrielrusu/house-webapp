@@ -20,6 +20,9 @@ var SignupEntity = Backbone.Model.extend({
 			},
 			"success": function(data) {
 				callback(data.error);
+				if (!data.error.length) {
+					$(document).trigger("close");
+				}
 			},
 			"error" : function() {
 				callback(false);

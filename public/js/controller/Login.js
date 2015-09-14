@@ -1,40 +1,40 @@
 var Controller_Login = function() {
-	this.init();
+  this.init();
 };
 
 Controller_Login.prototype = {
-	"loginView" : null,
-	"loginEntity" : null,
-	"init" : function() {
-		var _this = this;
-		this.loginView = new LoginView();
-		this.loginEntity = new LoginEntity();
+  "loginView" : null,
+  "loginEntity" : null,
+  "init" : function() {
+    var _this = this;
+    this.loginView = new LoginView();
+    $(document).on("loginSubmit", function(event) {
+      _this.loginEntity = new LoginEntity();
+      _this.loginEntity.validate(function(isValid){
+        if(isValid.length !== 0) {
+          if(!isValid) {
+            alert(isValid);
+            $("#login-form").dialog("open");
+          } else {
+            alert(isValid);
+            $("#login-form").dialog("open");
+          }
+        } else {
+          $("#login-form").dialog("close");
+        }
+      });
+    });
 
-		$(document).on("loginSubmit", function(event) {
-			_this.loginEntity.validate(function(isValid){
-				if(isValid.length !== 0) {
-					if(!isValid) {
-						alert(isValid);
-						$("#login-form").dialog("open");
-					} else {
-						alert(isValid);
-						$("#login-form").dialog("open");
-					}
-				} else {
-					siteRouter.navigate("index");
-					$("#login-form").dialog("close");
-				}
-			});
-
-		});
-	}
+    $(document).on('click', '.ui-dialog-titlebar-close', function(e) {
+      siteRouter.navigate("", {trigger: true});
+    });
+  },
+  "render" : function(){
+    this.loginView.makeDialog();
+  }
 };
-
-$(document).on('click', '#loginButton', function() {
-	siteRouter.navigate("login", {trigger: true});
-});
+var loginCtrl = new Controller_Login();
 
 siteRouter.on("route:login", function() {
-	var loginCtrl = new Controller_Login();
-	loginCtrl.loginView.makeDialog();
+  loginCtrl.render();
 });
