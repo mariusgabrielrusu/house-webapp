@@ -27,7 +27,7 @@ var LoginView = FormView.extend({
 			},
 			"close" : function(){
 				_this.dialogVisible = false;
-			},
+			}
 		});
 	}
 });

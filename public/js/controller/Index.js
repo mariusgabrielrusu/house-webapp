@@ -55,6 +55,10 @@ Controller_Index.prototype = {
     $(document).on("loginClick", function(event) {
       siteRouter.navigate("login", {trigger: true});
     });
+
+    $(document).on("signupClick", function(e) {
+      siteRouter.navigate("signup", {trigger: true});
+    });
 	}
 };
 

@@ -24,16 +24,17 @@ Controller_Login.prototype = {
         }
       });
     });
+
+    $(document).on('click', '.ui-dialog-titlebar-close', function(e) {
+      siteRouter.navigate("", {trigger: true});
+    });
   },
   "render" : function(){
     this.loginView.makeDialog();
   }
 };
 var loginCtrl = new Controller_Login();
-// var loginCtrl = new Controller_Login();
-// $(document).on('click', '#loginButton', function() {
-//   siteRouter.navigate("index/login");
-// });
+
 siteRouter.on("route:login", function() {
   loginCtrl.render();
 });

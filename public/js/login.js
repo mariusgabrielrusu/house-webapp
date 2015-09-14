@@ -16,6 +16,7 @@ var LoginEntity = Backbone.Model.extend({
 				"password" : _this.password
 			},
 			"success": function(data) {
+				debugger;
 				callback(data.error);
 			},
 			"error" : function() {

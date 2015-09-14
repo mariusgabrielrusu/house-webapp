@@ -63,11 +63,16 @@ Controller_Signup.prototype = {
 				}
 			}
 		});
-
+		$(document).on('click', '.ui-dialog-titlebar-close', function(e) {
+      siteRouter.navigate("", {trigger: true});
+    });
+	},
+	"render" : function() {
+		this.signupView.makeDialog();
 	}
 };
 
 var signupCtrl = new Controller_Signup();
-// siteRouter.on("route:login", function() {
-// 	var loginCtrl = new Controller_Login();
-// });
+siteRouter.on("route:signup", function() {
+  signupCtrl.render();
+});
