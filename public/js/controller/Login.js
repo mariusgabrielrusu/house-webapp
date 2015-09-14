@@ -8,8 +8,8 @@ Controller_Login.prototype = {
   "init" : function() {
     var _this = this;
     this.loginView = new LoginView();
-    this.loginEntity = new LoginEntity();
     $(document).on("loginSubmit", function(event) {
+      _this.loginEntity = new LoginEntity();
       _this.loginEntity.validate(function(isValid){
         if(isValid.length !== 0) {
           if(!isValid) {
