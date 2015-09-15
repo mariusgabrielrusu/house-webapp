@@ -20,7 +20,6 @@ Controller_Index.prototype = {
 		this.controlPanelView.setEntity(this.house);
 		this.controlPanelView.setActions();
 		this.controlPanelView.render();
-
 		//	Creare casa + randare
 		this.houseView = new HouseView();
 		this.houseView.setEntity(this.house);
@@ -43,6 +42,9 @@ Controller_Index.prototype = {
 		$(document).on("buttonChange", function(evt, param) {
 		    var oldValues = _this.house[param.property]; //saves previous values
 		    _this.house[param.property] = param.value;
+		    if ($(".loader").length === 0) {
+		    	_this.loaderView.createLoader();
+		    }
 		    _this.loaderView.render();
 		    _this.house.save(function(isError) {
 		        if (isError) {
@@ -52,7 +54,7 @@ Controller_Index.prototype = {
 		        _this.controlPanelView.render();
 		        _this.houseView.render();
 		        _this.table.render();
-		        _this.loaderView.destroy();
+		        _this.loaderView.remove();
 		    });
 		});
 	    $(document).on("loginClick", function(event) {
@@ -62,9 +64,9 @@ Controller_Index.prototype = {
 	    $(document).on("signupClick", function(e) {
 	      siteRouter.navigate("signup", {trigger: true});
 	    });
-	    
+
 	    $(document).on("close", function() {
-			siteRouter.navigate("index", {trigger: true});		
+			siteRouter.navigate("index", {trigger: true});
 		});
 	}
 };

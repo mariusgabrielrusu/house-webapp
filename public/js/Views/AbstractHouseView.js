@@ -6,9 +6,9 @@ var View = Backbone.View.extend({
     "getEntity" : function(){
         return this.entity;
     },
-    //  Arunca o eroare daca nu instantiezi functia "render" 
-    //  atunci cand extinzi clasa 
+    //  Arunca o eroare daca nu instantiezi functia "render"
+    //  atunci cand extinzi clasa
     "render" : function(){
         throw "This should be implemented in child clases";
-    }   
+    }
 });

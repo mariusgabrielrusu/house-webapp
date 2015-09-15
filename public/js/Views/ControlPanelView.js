@@ -1,26 +1,30 @@
 "use strict";
 var ControlPanelView = View.extend({
+    "el" : ".control-panel",
     //  Aka ControlPanelView extends View
     //  Trebuie mentionat constructorul (by default, ar fi fost View)
 
     //  Astea 3 linii de cod sunt cele care construiesc clasa
-    setActions: function() {
-        var _this = this;
-        $(":input", ".control-panel").change(function(e) {
-            //  Chestiile care vor fi modificate in "house"
-            //  Am pus numele cu "update" pentru switch-uri
-            var inputName = e.target.name;
-            var value = e.target.value;
-            if (inputName.includes("-update")) {
-                inputName = inputName.split("-");
-                inputName = inputName[0];
-                value !== "0" ? value = "10" : value = value;
-            }
+    "events" : {
+        "change :input" : "setActions"
+    },
+    setActions: function(e) {
+        //  Chestiile care vor fi modificate in "house"
+        //  Am pus numele cu "update" pentru switch-uri
+        if(typeof e === "undefined") {
+            return;
+        }
 
-            $(document).trigger("buttonChange", {
-                "property": inputName,
-                "value": value
-            });
+        var inputName = e.target.name;
+        var value = e.target.value;
+        if (inputName.includes("-update")) {
+            inputName = inputName.split("-");
+            inputName = inputName[0];
+            value !== "0" ? value = "10" : value = value;
+        }
+        $(document).trigger("buttonChange", {
+            "property": inputName,
+            "value": value
         });
     },
 
