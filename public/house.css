@@ -15,7 +15,7 @@ p {
 	margin-left: 21px;
 }*/
 
-#loginButton, #signupButton {
+.buttonHolder {
 	float: right;
 }
 #login-form {
