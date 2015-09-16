@@ -11,10 +11,12 @@ Controller_Index.prototype = {
 	"house" : null,
 	"buttons" : null,
 	"init" : function(){
-		this.house = new House();
-
+		this.house = new House({
+			lights: currentHouseValues.lights,
+			smoke: currentHouseValues.smoke,
+			door: currentHouseValues.door
+		});
 		this.loaderView = new LoaderView();
-
 		//	Creare control panel + randare
 		this.controlPanelView = new ControlPanelView();
 		this.controlPanelView.setEntity(this.house);
@@ -40,8 +42,8 @@ Controller_Index.prototype = {
 		//	apoi randeaza tot(face refresh pentru view-uri)
 
 		$(document).on("buttonChange", function(evt, param) {
-		    var oldValues = _this.house[param.property]; //saves previous values
-		    _this.house[param.property] = param.value;
+		    var oldValues = _this.house.attributes[param.property]; //saves previous values
+		    _this.house.attributes[param.property] = parseInt(param.value, 10);
 		    if ($(".loader").length === 0) {
 		    	_this.loaderView.createLoader();
 		    }
@@ -49,13 +51,18 @@ Controller_Index.prototype = {
 		    _this.house.save(function(isError) {
 		        if (isError) {
 		            alert("S-a petrecut o eroare. Ne pare rau.");
-		            _this.house[param.property] = oldValues;
+		            _this.house.attributes[param.property] = oldValues;
 		        }
 		        _this.controlPanelView.render();
 		        _this.houseView.render();
 		        _this.table.render();
 		        _this.loaderView.remove();
 		    });
+		    _this.house.set({
+		    	lights: $(".lightsSlider").val(),
+					smoke: $(".smokeSlider").val(),
+					door: $(".doorSwitch").val()
+		    })
 		});
 	    $(document).on("loginClick", function(event) {
 	      siteRouter.navigate("login", {trigger: true});

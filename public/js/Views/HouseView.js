@@ -1,11 +1,17 @@
 "use strict";
 var HouseView = View.extend({
+    defaults: {
+        "lights" : null,
+        "smoke" : null,
+        "door" : null
+    },
     render: function() {
         var method = null;
+
         function capitalize(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
-        for (var i in this.entity) {
+        for (var i in this.entity.attributes) {
             method = "set" + capitalize(i);
             if(typeof this[method] === "function"){
                 this[method]();
@@ -13,7 +19,7 @@ var HouseView = View.extend({
         }
     },
     setDoor: function() {
-        if ( parseInt(this.entity["door"]) === 1 ) {
+        if ( parseInt(this.entity.attributes.door) === 1 ) {
             $(".doorView").removeClass("door-closed");
             $(".doorView").addClass("door-open");
         } else {
@@ -25,7 +31,7 @@ var HouseView = View.extend({
         var color = $("." + param).css("background").split("(");
         color = color[1].split(")");
         color = color[0].split(",");
-        color[3] = parseInt(this.entity[param])/10;
+        color[3] = parseInt(this.entity.attributes[param])/10;
         $("." + param).css("background","rgba(" + color.join(",") + ")");
     },
     setLights: function() {

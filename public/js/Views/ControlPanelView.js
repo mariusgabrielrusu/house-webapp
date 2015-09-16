@@ -34,7 +34,7 @@ var ControlPanelView = View.extend({
         function capitalize(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
-        for (var i in this.entity) {
+        for (var i in this.entity.attributes) {
             method = "set" + capitalize(i);
             if (typeof this[method] === "function") {
                 this[method]();
@@ -44,7 +44,7 @@ var ControlPanelView = View.extend({
     },
 
     setLS: function(param) {
-        var Slider = parseInt(this.entity[param], 10);
+        var Slider = parseInt(this.entity.attributes[param], 10);
         if (Slider > 0) {
             $("." + param + "Slider").removeAttr("readonly").css("opacity", "1");
             $("." + param + "Switch").val(1);
@@ -65,7 +65,7 @@ var ControlPanelView = View.extend({
     },
 
     setDoor: function() {
-        if (parseInt(this.entity.door, 10) === 1) {
+        if (parseInt(this.entity.attributes.door, 10) === 1) {
             $(".doorSwitch").val(1);
         } else {
             $(".doorSwitch").val(0);
