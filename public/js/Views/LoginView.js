@@ -2,17 +2,20 @@ var LoginView = FormView.extend({
 	"dialogVisible" : false,
 	"el" : "#login-form",
 	makeDialog : function() {
-		var _this = this;
 		if(this.dialogVisible){
 			return;
 		}
+		this.$el.on("submit", function(e) {
+			e.preventDefault();
+			$(document).trigger("loginSubmit");
+		})
 		this.$el.dialog({
 			modal: true,
 			draggable: false,
 			resizable: false,
 			buttons: {
 				"Intră" : function() {
-					$(document).trigger("loginSubmit");
+						$(document).trigger("loginSubmit");
 				},
 				"Anulează" : function() {
 					$(document).trigger("close");
