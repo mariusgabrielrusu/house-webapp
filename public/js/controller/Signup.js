@@ -4,7 +4,7 @@ var Controller_Signup = function() {
 
 Controller_Signup.prototype = {
 	"signupView" : null,
-	"signupEntity" : null,
+	"userEntity" : null,
 	"validation" : null,
 	"init" : function() {
 		var _this = this;
@@ -15,12 +15,12 @@ Controller_Signup.prototype = {
 		});
 
 		$(document).on("signupSubmit", function(event) {
-			_this.signupEntity = new SignupEntity();
-			if(_this.signupEntity.s_userID !== "" &&
-			_this.signupEntity.s_email !== "" &&
-			_this.signupEntity.s_password !== "") {
+			_this.userEntity = new SignupEntity();
+			if(_this.userEntity.s_userID !== "" &&
+			_this.userEntity.s_email !== "" &&
+			_this.userEntity.s_password !== "") {
 
-				_this.signupEntity.validate(function(isValid) {
+				_this.userEntity.validateSignup(function(isValid) {
 					if(isValid.length !== 0) {
 						$("#signup-form").dialog("open");
 					} else {

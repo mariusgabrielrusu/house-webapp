@@ -4,13 +4,13 @@ var Controller_Login = function() {
 
 Controller_Login.prototype = {
   "loginView" : null,
-  "loginEntity" : null,
+  "userEntity" : null,
   "init" : function() {
     var _this = this;
     this.loginView = new LoginView();
     $(document).on("loginSubmit", function(event) {
-      _this.loginEntity = new LoginEntity();
-      _this.loginEntity.validate(function(isValid){
+      _this.userEntity = new UserEntity();
+      _this.userEntity.validateLogin(function(isValid){
         if(isValid.length !== 0) {
           if(!isValid) {
             alert(isValid);
