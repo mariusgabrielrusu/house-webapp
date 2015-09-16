@@ -3,11 +3,10 @@ var HouseView = View.extend({
     render: function() {
         var method = null;
 
-        function capitalize(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
+        var utils = new Utils();
+
         for (var i in this.entity.attributes) {
-            method = "set" + capitalize(i);
+            method = "set" + utils.capitalize(i);
             if(typeof this[method] === "function"){
                 this[method]();
             }

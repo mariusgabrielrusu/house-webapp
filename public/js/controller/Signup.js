@@ -9,7 +9,6 @@ Controller_Signup.prototype = {
 	"init" : function() {
 		var _this = this;
 		this.signupView = new SignupView();
-		this.validation = new Validation();
 
 		$(document).on("signupClick", function(event) {
 			_this.signupView.makeDialog();
@@ -40,12 +39,12 @@ Controller_Signup.prototype = {
 			var val = $(this).val();
 
 			for(var i in elements) {
-				if(typeof _this.validation.validator[elements[i]] === "function") {
-					if(_this.validation.validator[elements[i]](val) === false) {
+				if(typeof validation.validator[elements[i]] === "function") {
+					if(validation.validator[elements[i]](val) === false) {
 						//show error
 						$(this).removeClass();
 						$(this).tooltip({
-							content: _this.validation.errorMsg[elements[i]],
+							content: validation.errorMsg[elements[i]],
 							position: {
 								my: "left top",
 								at: "right+5 top-5"
