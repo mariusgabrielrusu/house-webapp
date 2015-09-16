@@ -1,7 +1,8 @@
 "use strict";
 var SignupView = FormView.extend({
+	"el" : "#signup-form",
 	makeDialog : function() {
-		$("#signup-form").dialog({
+		this.$el.dialog({
 			modal: true,
 			draggable: false,
 			resizable: false,

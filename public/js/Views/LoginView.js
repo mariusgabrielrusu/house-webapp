@@ -1,11 +1,12 @@
 var LoginView = FormView.extend({
 	"dialogVisible" : false,
+	"el" : "#login-form",
 	makeDialog : function() {
 		var _this = this;
 		if(this.dialogVisible){
 			return;
 		}
-		$("#login-form").dialog({
+		this.$el.dialog({
 			modal: true,
 			draggable: false,
 			resizable: false,
