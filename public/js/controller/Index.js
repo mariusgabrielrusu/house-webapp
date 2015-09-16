@@ -58,11 +58,6 @@ Controller_Index.prototype = {
 		        _this.table.render();
 		        _this.loaderView.remove();
 		    });
-		    _this.house.set({
-		    	lights: $(".lightsSlider").val(),
-					smoke: $(".smokeSlider").val(),
-					door: $(".doorSwitch").val()
-		    })
 		});
 	    $(document).on("loginClick", function(event) {
 	      siteRouter.navigate("login", {trigger: true});
@@ -79,6 +74,4 @@ Controller_Index.prototype = {
 };
 
 
-siteRouter.on("route:index", function() {
   var ctrl = new Controller_Index();
-});

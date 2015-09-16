@@ -1,10 +1,5 @@
 "use strict";
 var HouseView = View.extend({
-    defaults: {
-        "lights" : null,
-        "smoke" : null,
-        "door" : null
-    },
     render: function() {
         var method = null;
 
